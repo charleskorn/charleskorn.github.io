@@ -3,6 +3,7 @@ rvm:
   - 2.1
 script:
   - check.sh
+  - curl http://www.google.com/webmasters/sitemaps/ping?sitemap=http://charleskorn.com/sitemap.xml > /dev/null
 env:
   global:
     - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
