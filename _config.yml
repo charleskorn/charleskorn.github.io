@@ -13,6 +13,7 @@ exclude:
   - Gemfile.lock
   - Guardfile
   - CNAME
+  - LICENSE
 timezone: Australia/Melbourne
 
 # Build settings
