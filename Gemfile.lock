@@ -170,6 +170,7 @@ DEPENDENCIES
   guard-jekyll-plus
   guard-livereload
   jekyll-compose
+  jekyll-sitemap
 
 BUNDLED WITH
    1.10.4

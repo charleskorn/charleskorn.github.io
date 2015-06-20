@@ -8,6 +8,7 @@ description: >
 baseurl: ""
 url: "http://charleskorn.com"
 github_username: charleskorn
+
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -15,6 +16,9 @@ exclude:
   - CNAME
   - LICENSE
 timezone: Australia/Melbourne
+
+gems:
+  - jekyll-sitemap
 
 # Build settings
 markdown: kramdown
