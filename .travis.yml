@@ -2,7 +2,7 @@ language: ruby
 rvm:
   - 2.1
 script:
-  - check.sh
+  - ./check.sh
   - curl http://www.google.com/webmasters/sitemaps/ping?sitemap=http://charleskorn.com/sitemap.xml > /dev/null
 env:
   global:
