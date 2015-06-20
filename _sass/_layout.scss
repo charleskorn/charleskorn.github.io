@@ -232,3 +232,20 @@
         }
     }
 }
+
+.post-tags {
+    color: $grey-color;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: inline;
+        margin-left: 5px;
+
+        li {
+            display: inline;
+            margin-right: 10px;
+        }
+    }
+}

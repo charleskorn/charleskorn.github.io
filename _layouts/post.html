@@ -12,4 +12,13 @@ layout: default
     {{ content }}
   </article>
 
+  <div class="post-tags">
+    <i class="fa fa-tags"></i>
+
+    <ul>
+      {% for tag in page.tags %}
+        <li>{{ tag }}</li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>
