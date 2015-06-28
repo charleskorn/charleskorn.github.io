@@ -127,9 +127,10 @@ blockquote {
 pre,
 code {
     font-size: 15px;
-    border: 1px solid $grey-color-light;
+    font-family: 'Source Code Pro', monospace;
+    border: 1px solid $grey-color;
     border-radius: 3px;
-    background-color: #eef;
+    background-color: $grey-color-light;
 }
 
 code {
