@@ -8,6 +8,7 @@ description: >
 baseurl: ""
 url: "http://charleskorn.com"
 github_username: charleskorn
+permalink: pretty
 
 exclude:
   - Gemfile
