@@ -13,4 +13,12 @@ echo --------------------------------------
 echo Checking...
 echo --------------------------------------
 echo
-bundle exec htmlproof ./_site --only-4xx --check-favicon --check-html --href-ignore '#'
+
+# Work around issues with rate limiting on some external sites (eg. YouTube) when checking links from Travis
+if [ "$TRAVIS" = "true" ]; then
+  HTMLPROOF_EXTRA_ARGS="--disable-external"
+else
+  HTMLPROOF_EXTRA_ARGS=""
+fi
+
+bundle exec htmlproof ./_site --only-4xx --check-favicon --check-html --href-ignore '#' $HTMLPROOF_EXTRA_ARGS
