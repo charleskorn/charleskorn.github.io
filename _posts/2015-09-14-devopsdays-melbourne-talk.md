@@ -9,7 +9,7 @@ _I've been holding off posting about this because I was hoping the video would b
 I'll update this post if it does come out._
 
 I gave a lightning / Pecha Kucha-style talk at [DevOpsDays Melbourne](http://www.devopsdays.org/events/2015-melbourne/)
-on July 16 about our how we were able to deliver multiple production deployments a week at Leap Training.
+on July 16 about our how we were able to deliver multiple production deployments a week at Trim for Life.
 This involved the use of (amongst other things) a microservices architecture, a backwards- and
 forwards-compatible data storage mechanism, fully automated deployment pipelines and automated monitoring.
 
