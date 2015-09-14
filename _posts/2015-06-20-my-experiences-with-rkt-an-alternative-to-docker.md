@@ -20,9 +20,9 @@ My goal with this blog post is to discuss some of the things I've liked about rk
 
 # Image build process
 The first thing that struck me about rkt was the simplicity and speed of the image build process. 
-[A simple image for a personal project](https://github.com/charleskorn/weather-thingy-data-service/blob/master/rkt/manifest.json)
+[A simple image for a personal project](https://github.com/charleskorn/weather-thingy-data-service/blob/a4937734f6d73aaf1e4ee56c667388dd889a945a/rkt/manifest.json)
 takes four seconds to build, and most of that is spent compiling the Golang project that makes up the image. 
-([This](https://github.com/charleskorn/weather-thingy-data-service/blob/master/build.sh) is the shell 
+([This](https://github.com/charleskorn/weather-thingy-data-service/blob/a4937734f6d73aaf1e4ee56c667388dd889a945a/build.sh) is the shell
 script that I use to compile that image if you're interested.) This simplicity and speed stems from the fact that 
 neither the image nor its base image (if there is one) are actually started during the build process when using the 
 standard build tool (`actool`). Instead, each image is created from the files it requires and a list of 

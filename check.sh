@@ -21,4 +21,4 @@ else
   HTMLPROOF_EXTRA_ARGS=""
 fi
 
-bundle exec htmlproof ./_site --only-4xx --check-favicon --check-html --href-ignore '#' $HTMLPROOF_EXTRA_ARGS
+bundle exec htmlproof ./_site --only-4xx --check-favicon --check-html --url-ignore '#' $HTMLPROOF_EXTRA_ARGS
