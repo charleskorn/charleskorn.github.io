@@ -1,5 +1,6 @@
 # Site settings
 title: Charles Korn
+name: Charles Korn
 email: me@charleskorn.com
 description: >
   The ramblings of Charles Korn.
@@ -9,6 +10,10 @@ baseurl: ""
 url: "http://charleskorn.com"
 github_username: charleskorn
 permalink: pretty
+author:
+  name: Charles Korn
+  email: me@charleskorn.com
+  url: "http://charleskorn.com"
 
 exclude:
   - Gemfile
@@ -21,6 +26,7 @@ timezone: Australia/Melbourne
 
 gems:
   - jekyll-sitemap
+  - jekyll-feed
 
 # Build settings
 markdown: kramdown
