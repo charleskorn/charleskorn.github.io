@@ -33,7 +33,7 @@ It also has built in [SASS and CoffeeScript compilation](http://jekyllrb.com/doc
 support for [permalinks](https://en.wikipedia.org/wiki/Permalink), amongst other things. It's also straightforward to set up
 [a custom 404 page](https://github.com/charleskorn/charleskorn.github.io/blob/master/404.md).
 
-**Side note**: as you can imagine, some features of Jekyll are restricted by GitHub. For example, there is  
+**Side note**: as you can imagine, some features of Jekyll are restricted by GitHub. For example, there is
 [a limited set of allowed plugins](https://help.github.com/articles/using-jekyll-plugins-with-github-pages/), but by and 
 large, you can use the full functionality of the core Jekyll project. If you need more flexibility, you can always [generate
 the pages yourself and push the result up to a branch called `gh-pages`](https://help.github.com/articles/creating-project-pages-manually/),
