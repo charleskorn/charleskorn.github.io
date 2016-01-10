@@ -22,3 +22,5 @@ else
 fi
 
 bundle exec htmlproof ./_site --only-4xx --check-favicon --check-html --url-ignore '#' $HTMLPROOF_EXTRA_ARGS
+
+github-pages health-check
