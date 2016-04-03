@@ -37,7 +37,7 @@ Apart from the performance issue I've already talked about, we also wanted to tr
 
 * Any schema changes that were made needed to be manually applied to the database backup file (applying any new database migrations was not included in the test set up process). This meant tests weren't always running against the most recent version of the schema.
 
-## The new solution
+## What are snapshots?
 
 Before we jump into talking about how we improved the performance of our tests, it's important to understand [SQL Server's snapshot feature](https://msdn.microsoft.com/en-us/library/ms175158.aspx). Other database engines have similar mechanisms available, some built-in, some relying on file system support, but we were using SQL Server so that's what I'll talk about here. (Snapshots are unrelated to other things with the word 'snapshot' in them, such as snapshot isolation.)
 
@@ -47,7 +47,9 @@ Then, when the time comes to restore the snapshot, it is just a matter of deleti
 
 (If you're interested in learning more, there are more details about how snapshots work and how to use them on [MSDN](https://msdn.microsoft.com/en-us/library/ms175158.aspx).)
 
-So, after a few iterations, we arrived at this point:
+## Introducing snapshots into our test process
+
+After a few iterations, we arrived at this point:
 
 1. Create empty test database
 2. Run initial schema and base data creation script
@@ -68,6 +70,8 @@ There are a few other things of note:
 * We addressed our first two 'nice to haves' by turning the binary database backup into an equivalent SQL script that recreated the schema and base data (used in step 2), and put this file under source control. Running the script rather than restoring the backup was marginally slower, but we were happy to trade speed for maintainability in this case, especially given that we'd only have to run the script once per test run.
 
 * Step 3 (running any outstanding migrations) addressed the final 'nice to have'. We couldn't just build up the database from scratch with migrations because for some of the earliest parts of the schema, there weren't any migration scripts. Also, we found that building a minimal schema script (and leaving the rest of the work to the migrations we did have) was a time-consuming, error-prone manual process. 
+
+## Adding a dash of parallelism
 
 Despite our performance gains, we still weren't satisfied -- we knew we could do even better. The final piece of the puzzle was to take advantage of [NUnit 3's parallel test run support](https://github.com/nunit/dev/wiki/Framework-Parallel-Test-Execution) to run our integration tests in parallel. 
 
