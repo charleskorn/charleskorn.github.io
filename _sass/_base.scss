@@ -43,9 +43,19 @@ ul, ol, dl, figure,
 img {
     max-width: 100%;
     vertical-align: middle;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+
+    &.emoji {
+        display: inline;
+    }
+
+    & + em {
+        text-align: center;
+        display: block;
+    }
 }
-
-
 
 /**
  * Figures
@@ -93,7 +103,7 @@ a {
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 20%);
+        color: darken($brand-color, 10%);
     }
 
     &:hover {
