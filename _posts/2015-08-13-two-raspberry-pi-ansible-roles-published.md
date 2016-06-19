@@ -3,6 +3,7 @@ layout: post
 title:  Two Raspberry Pi Ansible roles published
 date:   2015-08-13 19:30:00 +10:00
 tags:   ansible raspberry-pi hardware
+comments: true
 ---
 
 Over the weekend I published two [Ansible](http://www.ansible.com/) roles for automating common set up

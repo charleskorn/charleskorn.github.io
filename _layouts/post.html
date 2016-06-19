@@ -25,6 +25,10 @@ layout: default
     <meta itemprop="keywords" content="{{ page.tags | join: "," }}" />
   </div>
 
+  {% if page.comments %}
+    {% include disqus.html %}
+  {% endif %}
+
   <meta itemprop="license" content="http://creativecommons.org/licenses/by-nc-sa/4.0/" />
   <meta itemprop="copyrightHolder" itemscope="" itemtype="http://schema.org/Person" itemref="authorName authorUrl" />
   <meta itemprop="author" itemscope="" itemtype="http://schema.org/Person" itemref="authorName authorUrl" />

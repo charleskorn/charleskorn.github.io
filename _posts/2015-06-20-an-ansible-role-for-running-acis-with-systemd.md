@@ -3,6 +3,7 @@ layout: post
 title:  An Ansible role for running ACIs with systemd
 tags:   containers deployment devops rkt ansible aci systemd
 date:   2015-06-20 15:50:00 +10:00
+comments: true
 ---
 
 Following on from [my previous blog post about rkt]({% post_url 2015-06-20-my-experiences-with-rkt-an-alternative-to-docker %}), 

@@ -3,6 +3,7 @@ layout: post
 title:  "Yow Connected presentation: 'Meet me halfway: developers and designers pairing for the win'"
 date:   2015-09-19 10:45:00 +10:00
 tags:   presentation yow design ux pairing
+comments: true
 ---
 
 [Greg Skinner](http://gregskinner.wordpress.com) and I gave a presentation at [Yow Connected](http://connected.yowconference.com.au)

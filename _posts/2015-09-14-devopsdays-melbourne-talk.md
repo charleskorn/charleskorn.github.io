@@ -3,6 +3,7 @@ layout: post
 title:  "DevOpsDays Melbourne presentation: 'Deploying two apps, three microservices and one website with zero hair loss: what worked for us'"
 date:   2015-09-14 18:08:00 +10:00
 tags:   devops presentation microservices docker ansible
+comments: true
 ---
 
 _I've been holding off posting about this because I was hoping the video would be posted, but it doesn't seem to be coming...

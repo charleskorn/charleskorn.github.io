@@ -3,6 +3,7 @@ layout: post
 tags:   embedded iot st microcontrollers project-template linker
 date:   2016-05-08 17:40:00 +10:00
 title: "A deeper look at the STM32F4 project template: linking it all together"
+comments: true
 ---
 
 [Last time](/2016/04/17/a-deeper-look-at-the-stm32f4-project-template-getting-things-started/), we saw how the microcontroller starts up and begins running our code, and I mentioned that the linker script is responsible for making sure the right stuff ends up in the right place in our firmware binary. So today I'm going to take a closer look at the [linker script](https://github.com/charleskorn/stm32f4-project-template/blob/master/lib/stm32f4xx/src/stm32f407vg.ld) and how it makes this happen.

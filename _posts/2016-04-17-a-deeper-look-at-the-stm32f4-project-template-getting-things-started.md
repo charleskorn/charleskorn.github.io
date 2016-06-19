@@ -3,6 +3,7 @@ layout: post
 tags:   embedded iot st microcontrollers project-template assembly
 date:   2016-04-17 18:40:00 +10:00
 title: "A deeper look at the STM32F4 project template: getting things started"
+comments: true
 ---
 
 As promised in [my post about my STM32F4 project template](/2016/04/15/a-project-template-for-the-stm32f4-discovery-board/), I'm going to be publishing a series of posts about various interesting aspects of it. (Well, interesting to me...)

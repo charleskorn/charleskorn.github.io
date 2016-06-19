@@ -3,6 +3,7 @@ layout: post
 title:  "My experiences with rkt, an alternative to Docker"
 date:   2015-06-20 14:25:00 +10:00
 tags:   containers coreos deployment devops docker rkt
+comments: true
 ---
 
 _This post was written for the v0.5.5 release of rkt, so some things may be slightly outdated._

@@ -3,6 +3,7 @@ layout: post
 tags: testing databases integration-testing sql-server performance
 date:   2016-03-30 9:30:00 +11:00
 title: Fast(er) database integration testing with snapshots
+comments: true
 ---
 
 On a recent project, we were struggling with our integration test suite. A full run on a developer PC could take up to 15 minutes. As you'd expect, that was having a significant impact on our productivity.

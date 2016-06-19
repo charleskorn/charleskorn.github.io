@@ -3,6 +3,7 @@ layout: post
 title:  My blogging setup
 date:   2015-07-21 21:48:00 +10:00
 tags:   meta blogging jekyll github-pages
+comments: true
 ---
 
 The purpose of this post is to document what I'm using to run this blog (and thus serve as some kind of prompt when I'm trying to 
