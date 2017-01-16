@@ -2,7 +2,7 @@ language: ruby
 sudo: false
 cache: bundler
 rvm:
-  - 2.1
+  - 2.4
 script:
   - ./check.sh
   - curl http://www.google.com/webmasters/sitemaps/ping?sitemap=http://charleskorn.com/sitemap.xml > /dev/null
