@@ -32,3 +32,4 @@ gems:
 
 # Build settings
 markdown: kramdown
+timezone: Australia/Melbourne
