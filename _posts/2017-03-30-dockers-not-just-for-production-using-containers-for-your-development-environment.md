@@ -4,6 +4,7 @@ title: 'Docker''s not just for production: using containers for your development
 tags: presentation docker containers development-environment
 date:   2017-03-30 20:00:00 +02:00
 comments: true
+redirect_from: "/2017/03/31/dockers-not-just-for-production-using-containers-for-your-development-environment/"
 ---
 
 Tonight I spoke at the [ThoughtWorks Munich meetup](https://www.meetup.com/ThoughtWorks-Munich/events/238297588/),

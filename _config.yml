@@ -29,6 +29,7 @@ gems:
   - jekyll-feed
   - jemoji
   - jekyll-seo-tag
+  - jekyll-redirect-from
 
 # Build settings
 markdown: kramdown
