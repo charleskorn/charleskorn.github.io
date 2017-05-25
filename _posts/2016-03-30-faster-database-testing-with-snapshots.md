@@ -74,7 +74,7 @@ There are a few other things of note:
 
 ## Adding a dash of parallelism
 
-Despite our performance gains, we still weren't satisfied -- we knew we could do even better. The final piece of the puzzle was to take advantage of [NUnit 3's parallel test run support](https://github.com/nunit/dev/wiki/Framework-Parallel-Test-Execution) to run our integration tests in parallel. 
+Despite our performance gains, we still weren't satisfied -- we knew we could do even better. The final piece of the puzzle was to take advantage of [NUnit 3's parallel test run support](https://github.com/nunit/docs/wiki/Framework-Parallel-Test-Execution) to run our integration tests in parallel. 
 
 However, we couldn't just sprinkle `[Parallelizable]` throughout the code base and head home for the day. If we did that without making any further changes, each test running at the same time would be using the same test database and would step on each other's toes. We didn't want to go back to having each test create its own database from scratch either though, because then we'd lose the performance gains we'd achieved. 
 

@@ -14,7 +14,7 @@ I picked the [STM32F4 series](http://www.st.com/stm32f4) as it's a relatively po
 
 It still has some rough edges, but it should be ready for use by people who aren't me. It has everything you need to get started:
 
-* a working [CMake](http://cmake.org)-based build system, which uses the [GCC ARM toolchain](https://launchpad.net/gcc-arm-embdded) to produce a firmware binary
+* a working [CMake](http://cmake.org)-based build system, which uses the [GCC ARM toolchain](https://launchpad.net/gcc-arm-embedded) to produce a firmware binary
 * a build target to flash that binary using [stlink](https://github.com/texane/stlink)
 * the [STM32F4 DSP and standard peripherals library](http://www2.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-standard-peripheral-libraries/stsw-stm32065.html), if you want to use that
 * a sample app that will flash the LEDs in a pattern. Yes, that's right, flashing LEDs:
