@@ -7,13 +7,13 @@ description: >
   I'm a developer at <a href="http://www.thoughtworks.com/">ThoughtWorks</a> in Melbourne.
   I like hardware, DevOps, travel, photography, chocolate and Lego.
 baseurl: ""
-url: "http://charleskorn.com"
+url: "https://charleskorn.com"
 github_username: charleskorn
 permalink: pretty
 author:
   name: Charles Korn
   email: me@charleskorn.com
-  url: "http://charleskorn.com"
+  url: "https://charleskorn.com"
 
 exclude:
   - Gemfile
