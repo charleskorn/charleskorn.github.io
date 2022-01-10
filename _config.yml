@@ -4,8 +4,8 @@ name: Charles Korn
 email: me@charleskorn.com
 description: >
   The ramblings of Charles Korn.
-  I'm a developer at <a href="http://www.thoughtworks.com/">ThoughtWorks</a> in Melbourne.
-  I like hardware, DevOps, travel, photography, chocolate and Lego.
+  I'm a developer at <a href="https://www.thoughtworks.com/">Thoughtworks</a> in Melbourne, and the maintainer of <a href="https://batect.dev">Batect</a>.
+  I like improving the developer experience, cloud-native architecture, internal platforms, travel, photography, chocolate and Lego.
 baseurl: ""
 url: "https://charleskorn.com"
 github_username: charleskorn
@@ -24,7 +24,7 @@ exclude:
   - vendor
 timezone: Australia/Melbourne
 
-gems:
+plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jemoji
@@ -33,4 +33,3 @@ gems:
 
 # Build settings
 markdown: kramdown
-timezone: '+1000'
