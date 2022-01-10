@@ -7,7 +7,9 @@ gem 'guard-livereload'
 gem 'html-proofer'
 gem 'jekyll-sitemap'
 gem 'jekyll-feed'
+gem "webrick"
 
 group :jekyll_plugins do
   gem 'jekyll-compose'
 end
+
