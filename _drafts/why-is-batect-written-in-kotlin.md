@@ -67,15 +67,15 @@ a bit different:
   of Docker's features, such as connection configuration management, image registry credentials and managing the terminal while streaming I/O to and from the daemon. 
 
   This has played out over and over again, and has been a significant drain on my time, especially when it came to adding support for BuildKit, which is largely 
-  undocumented and requires extensive client-side logic to implement correctly and relies on 
+  undocumented, requires extensive client-side logic to implement correctly and relies on 
   [a number of Golang idiosyncrasies](https://github.com/batect/batect/commit/98262d74c3e26b36b9d89eebb2838c48365e68d5).
 
-* Kotlin/Native sadly hasn't matured as quickly as I expected, so Batect still requires a JVM, and this adds a small barrier to entry for some people. Having
+* Kotlin/Native sadly hasn't matured as quickly as I expected. So Batect still requires a JVM, and this adds a small barrier to entry for some people. Having
   said that, JetBrains is still very committed to Kotlin/Native and significant progress has been made in the last 12 months or so, so I remain hopeful that
   removing the need for a JVM is still an achievable goal. This will not be painless -- Batect has some dependencies on some JVM-only libraries at the moment --
   but it certainly seems within reach.
 
 * The last point is highly subjective of course, but Kotlin remains my favourite language to this day.
 
-It's very easy to question decisions in hindsight, but while some things may well have been easier had I chosen to use Golang, Batect has hundreds of active users
-who love using it and I still enjoy working on it after all this time, and those are the two things that matter most to me.
+It's very easy to question decisions in hindsight. While some things may well have been easier had I chosen to use Golang, Batect has hundreds of active users
+who love using it, and I still enjoy working on it after all this time, and those are the two things that matter most to me.
