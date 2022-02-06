@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "Why is Batect written in Kotlin?"
-tags:   kotlin golang batect
+title: Why is Batect written in Kotlin?
+tags: kotlin golang batect open-source
 comments: true
+date: 2022-02-07 09:19 +1100
 ---
+After quite a hiatus, I'm going to try to post here more regularly... let's start with two topics close to my heart: Kotlin and Batect. 
 
 A fairly frequent question I get is: why is [Batect](https://batect.dev/) written in Kotlin? And often the question behind the question is:
 why isn't it written in Golang?
@@ -39,7 +41,7 @@ I was using the `docker` CLI to communicate with the Docker daemon from Kotlin a
 didn't seem _that_ difficult if needed later.
 
 Another argument in favour of Golang was **the ability to build a single self-contained binary** for distribution, rather than requiring users to install
-  a JVM. 
+a JVM. 
 
 However, [earlier that year](https://blog.jetbrains.com/kotlin/2017/04/kotlinnative-tech-preview-kotlin-without-a-vm/), JetBrains had
 announced the first preview of Kotlin/Native, which would allow the same thing for Kotlin code. Younger, naïve-r me assumed that would be good enough
@@ -82,4 +84,4 @@ Every now and then I question my choice and whether it was the right decision to
 I chosen to use Golang, Batect has hundreds of active users who love using it, and I still enjoy working on it after all this time, and those are the two things that 
 matter most to me.
 
-_Thank you to Andy Marks and Jo Piechota for providing feedback on a draft version of this post._
+_Thank you to Andy Marks, Inny So and Jo Piechota for providing feedback on a draft version of this post._
