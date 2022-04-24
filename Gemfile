@@ -4,7 +4,6 @@ gem 'github-pages'
 gem 'guard'
 gem 'guard-jekyll-plus'
 gem 'guard-livereload'
-gem 'html-proofer'
 gem 'jekyll-sitemap'
 gem 'jekyll-feed'
 gem "webrick"
