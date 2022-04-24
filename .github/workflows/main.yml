@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3.0.2
+        
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1.102.0
+        with:
+          bundler-cache: true 
+          
+      - name: Build and check site
+        run: ./check.sh
