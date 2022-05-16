@@ -1,1 +1,1 @@
-Sitemap: http://charleskorn.com/sitemap.xml
+Sitemap: https://charleskorn.com/sitemap.xml
