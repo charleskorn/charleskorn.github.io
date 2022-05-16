@@ -10,7 +10,7 @@ The purpose of this post is to document what I'm using to run this blog (and thu
 fix stuff in six months' time) and hopefully also help you set up your own blog.
 
 The *tl;dr* version: [Jekyll](http://jekyllrb.com/) + [GitHub Pages](https://pages.github.com/) + custom domain name = 
-[charleskorn.com](http://charleskorn.com)
+[charleskorn.com](https://charleskorn.com)
 
 # Hosting
 

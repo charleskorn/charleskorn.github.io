@@ -7,7 +7,7 @@ comments: true
 ---
 
 I've been talking quite a bit lately about Docker-based build environments 
-([in Hamburg](http://charleskorn.com/2017/01/17/dockers-not-just-for-production-using-containers-for-your-development-environment/), 
+([in Hamburg](https://charleskorn.com/2017/01/17/dockers-not-just-for-production-using-containers-for-your-development-environment/), 
 [in Munich](/2017/03/30/dockers-not-just-for-production-using-containers-for-your-development-environment/), and at many of our clients).
 
 One of the biggest drawbacks of the technique is the poor integration story for IDEs. Many IDEs require that your build environment 
