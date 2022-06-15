@@ -35,17 +35,23 @@ Similar to Honeycomb's definition of observability for production systems, I wan
 
 ## Key design considerations
 
-* Low impact on app performance
-* Cost
-* Privacy
-* Security
-* Availability
-* Ease of maintenance
-* Flexibility - ability to add other data / attributes in the future, ability to answer questions I don't yet know I want to ask
+There were a couple of key aspects I was considering as I sketched out what the telemetry collection system could look like, in rough priority order:
 
-Things to emphasise:
-* Opt-in telemetry
+* Privacy and security: given the situations and environments where Batect is used, preserving users' and organisations' security
+  and privacy are critical. This is not only because it's simply the right thing to do, but because any issues here would likely lead to a loss of trust and to them
+  blocking telemetry data or not using Batect, which is obviously not what I want.
 
+* Cost: any expense to build or run the system would be coming out of my own pocket, so minimising the cost was important to me.
+
+* Ease of maintenance: this is something I largely maintain in my own time, so minimising the amount of ongoing care and feeding was another high priority.
+  Another aspect of this was also designing something simple and easy to understand, so that any future maintenance would be quick and easy, rather than necessitating spending
+  a lot of time to re-learn an obscure tool, service or library.
+
+* User experience impact: Batect is part of developers' core feedback loop, and so any changes that make it noticably less reliable or less performant
+  were non-starters.
+
+* Flexibility: I want to be able to investigate new ideas and answer questions I haven't thought of yet, as well as expand the data I'm collecting as 
+  Batect evolves, and so I need a system that supports these goals.
 
 ## The design
 
