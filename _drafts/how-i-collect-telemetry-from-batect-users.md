@@ -53,6 +53,8 @@ There were a couple of key aspects I was considering as I sketched out what the 
 * Flexibility: I want to be able to investigate new ideas and answer questions I haven't thought of yet, as well as expand the data I'm collecting as 
   Batect evolves, and so I need a system that supports these goals.
 
+* Learning: given I was building this on my own time, I also wanted to use this as an opportunity to learn more about a few technologies and techniques I hadn't used much before.
+
 ## The design
 
 * Walk through flow of events through system
