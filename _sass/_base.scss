@@ -139,11 +139,11 @@ code {
     font-family: 'Source Code Pro', monospace;
     border: 1px solid $grey-color-light;
     border-radius: 3px;
-    background-color: $grey-color-lightest;
 }
 
 code {
     padding: 1px 5px;
+    background-color: $grey-color-lightest;
 }
 
 pre {
@@ -154,10 +154,9 @@ pre {
         border: 0;
         padding-right: 0;
         padding-left: 0;
+        background-color: white;
     }
 }
-
-
 
 /**
  * Wrapper

@@ -126,8 +126,30 @@ And, thanks once again to telemetry data, once I'd released this feature, I was 
 
 ### Renovate
 
-Before: X% of sessions were using the latest available version
-After: X% of sessions were using the latest available version
+Batect is driven by the `batect` and `batect.cmd` wrapper scripts that you drop directly into your project and commit alongside your code.
+
+Most of the time, this is great: you can just clone a repository and start using it without needing to install anything, and you can be confident
+everyone on your team is using exactly the same version.
+
+However, there's a drawback hiding in the last part of that sentence: this design also means that you or one of your teammates must upgrade the wrapper script
+to use a new version of Batect. Based on both anecdotal evidence from users asking for features that already existed as well as telemetry data, I could
+see that many teams were not upgrading regularly. And from telemetry data, I also knew this was happening even while users were seeing an upgrade nudge like this
+many hundreds of times a day:
+
+```
+Version 0.79.1 of Batect is now available (you have 0.74.0).
+To upgrade to the latest version, run './batect --upgrade'.
+For more information, visit https://github.com/batect/batect/releases/tag/0.79.1.
+```
+
+Armed with this information, I decided to try to help users upgrade more often and more rapidly - there was little point spending time building new features and fixing bugs if only a
+small proportion of users benefited from these improvements. 
+
+My solution was to add support for Batect's wrapper script to [Renovate](https://github.com/renovatebot/renovate). This means that users can automatically receive
+pull requests whenever I release a new version of Batect, and upgrading is as simple as merging the PR. 
+
+Again, the data shows this has been a success: whereas previously, a new version would only slowly be adopted, now, new versions of Batect make up over 40% of sessions within a month
+of release.
 
 ## In closing
 
@@ -138,6 +160,5 @@ If you're interested in checking out the code for Abacus, it's [available on Git
 
 
 * "Telemetry?" section
-* "Renovate" section
 * "In closing" section
 * Table of contents?
