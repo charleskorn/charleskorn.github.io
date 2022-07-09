@@ -47,7 +47,7 @@ There were a couple of key aspects I was considering as I sketched out what the 
   Another aspect of this was also designing something simple and easy to understand, so that when I come back to do any future maintenance, it would be quick and easy, 
   rather than necessitate spending a lot of time to re-learn an obscure tool, service or library.
 
-* User experience impact: Batect is part of developers' core feedback loop, and so any changes that made it noticably less reliable or less performant
+* User experience impact: Batect is part of developers' core feedback loop, and so any changes that made it noticeably less reliable or less performant
   were non-starters.
 
 * Flexibility: I want to be able to investigate new ideas and answer questions I haven't thought of yet, as well as expand the data I'm collecting as 
@@ -132,7 +132,7 @@ Most of the time, this is great: you can just clone a repository and start using
 everyone on your team is using exactly the same version.
 
 However, there's a drawback hiding in the last part of that sentence: this design also means that you or one of your teammates must upgrade the wrapper script
-to use a new version of Batect. Based on both anecdotal evidence from users asking for features that already existed as well as telemetry data, I could
+to use a new version of Batect. Based on both anecdotal evidence from users asking for features that already existed, as well as telemetry data, I could
 see that many teams were not upgrading regularly. And from telemetry data, I also knew this was happening even while users were seeing an upgrade nudge like this
 many hundreds of times a day:
 
