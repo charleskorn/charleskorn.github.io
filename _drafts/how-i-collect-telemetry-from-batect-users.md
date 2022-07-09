@@ -14,7 +14,7 @@ desk to hundreds of people all over the globe.
 Back when everyone could fit around a desk, answering these questions was easy: I could stand up, walk over to someone, and ask them. (Or, if I was feeling particularly
 lazy, I could just stay seated and ask over the top of my screen.) 
 
-But with this growth in use, now I have another question: how do I break out of my bubble and feedback and ideas from those I don't know?
+But with this growth, now I have another question: how do I break out of my bubble and feedback and ideas from those I don't know?
 
 This is where telemetry data comes into the picture. In addition to feedback signals like GitHub issues, discussions, suggestions and the surveys I occasionally run,
 telemetry data has been invaluable to help me get a broader understanding of how users use Batect, the problems they run into and the environments they use Batect in.
@@ -33,11 +33,30 @@ off with two stories of how I've used this data.
 
 ## Telemetry?
 
-* What is telemetry?
+Similar to Honeycomb's definition of [observability](https://www.honeycomb.io/blog/so-you-want-to-build-an-observability-tool/) for production systems, I wanted to be able to answer
+questions about Batect and it's users I haven't even thought of yet, and do so without having to make any code changes and push out a new version of Batect.
 
-Similar to Honeycomb's definition of observability for production systems, I wanted to be able to answer questions about Batect and it's users I haven't even thought of yet.
+This is exactly the problem that Batect's telemetry data solves. Every time Batect runs, it collects information like:
 
-**_add link to definition of observability above_**
+* what version of Batect you're using
+* what operating system you're using
+* what version of Docker you're using
+* a bunch of other interesting environmental information (what shell you use, whether you're running Batect on a CI runner or not, and more)
+* data on the size of your project
+* what features you are or aren't using
+* notable events such as if an update nudge was shown, or if an error occurred
+* timing information for performance-critical operations such as loading your configuration file
+
+...and more! There's a full list of all the data Batect collects in [its privacy policy](https://batect.dev/privacy/#in-app-telemetry).
+
+With this data, I can answer all kinds of questions. Here are just a few real examples:
+
+* How long does it take for new versions of Batect to be adopted? (answer: anywhere from hours to months, depending on the user)
+* How many times does a user see an update nudge before they update Batect? (answer: lots - some users even seem to never respond to these)
+* Does using BuildKit really make a difference to image build times? (answer: yes)
+* Could adding shell tab completion really be useful? (answer: yes, humans make lots of typos)
+* Was adding shell tab completion actually useful? (answer: yes, it prevents lots of typos)
+* What's the common factor behind this odd error that only a handful of users are seeing? (answer: one particular version of Docker)
 
 ## Key design considerations
 
@@ -47,14 +66,14 @@ There were a couple of key aspects I was considering as I sketched out what the 
   and privacy are critical. This is not only because it's simply the right thing to do, but because any issues here would likely lead to a loss of trust and to them
   blocking telemetry data or not using Batect, which is obviously not what I want.
 
+* User experience impact: Batect is part of developers' core feedback loop, and so any changes that made it noticeably less reliable or less performant
+  were non-starters.
+
 * Cost: any expense to build or run the system would be coming out of my own pocket, so minimising the cost was important to me.
 
 * Ease of maintenance: this is something I largely maintain in my own time, so minimising the amount of ongoing care and feeding was another high priority.
   Another aspect of this was also designing something simple and easy to understand, so that when I come back to do any future maintenance, it would be quick and easy, 
   rather than necessitate spending a lot of time to re-learn an obscure tool, service or library.
-
-* User experience impact: Batect is part of developers' core feedback loop, and so any changes that made it noticeably less reliable or less performant
-  were non-starters.
 
 * Flexibility: I want to be able to investigate new ideas and answer questions I haven't thought of yet, as well as expand the data I'm collecting as 
   Batect evolves, and so I needed a system that supports these goals.
@@ -71,7 +90,7 @@ It's probably easiest to understand the overall design of the system by followin
 A _session_ represents a single invocation of Batect - so if you run `./batect build` and then `./batect unitTest`, this will create two telemetry sessions, 
 one for each invocation.
 
-1️⃣ As Batect runs, it builds up the session, recording information such as details about Batect, the environment it's running in and your configuration.
+1️⃣ As Batect runs, it builds up the session, recording details about Batect, the environment it's running in and your configuration, amongst other things.
 It also records particular events that occur, like when an error occurs or when it shows you a "new version available" notification, and captures timing spans for 
 performance-sensitive operations like loading configuration files. 
 
@@ -81,7 +100,7 @@ Just before Batect terminates, it writes this session to disk in the upload queu
 
 3️⃣ Any outstanding sessions are uploaded to Abacus. Once each upload is confirmed as successful, the session is removed from disk. 
 
-This concept of the upload queue has been really successful: uploading sessions in the background of a future invocation minimises the impact of uploading this data,
+This concept of the upload queue has been really successful: uploading sessions in the background of a future invocation minimises the user impact of uploading this data,
 and provides a form of resilience against any transient network or service issues. (If a session can't be uploaded for some reason, Batect will try to upload it again
 next time, or give up once the session is 30 days old.)
 
@@ -167,6 +186,3 @@ And I've learnt about services like BigQuery and Data Studio along the way.
 
 If you're interested in checking out the code for Abacus, it's [available on GitHub](https://github.com/batect/abacus), as is 
 [the client-side telemetry library](https://github.com/batect/batect/tree/main/libs/telemetry) used by Batect.
-
-
-* "Telemetry?" section
