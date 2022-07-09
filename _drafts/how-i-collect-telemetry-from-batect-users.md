@@ -23,7 +23,13 @@ This in turn has helped me prioritise the features and improvements that will ha
 In this (admittedly very long) post, I'm going to talk through what I mean by telemetry data, how I went about designing the telemetry collection system, Abacus, and finish 
 off with two stories of how I've used this data.
 
-**_TABLE OF CONTENTS HERE?_**
+* [Telemetry?](#telemetry)
+* [Key design considerations](#key-design-considerations)
+* [The design](#the-design)
+* [Examples of where I've used this data](#examples-of-where-ive-used-this-data)
+  * [Shell tab completion](#shell-tab-completion)
+  * [Renovate](#renovate)
+* [In closing](#in-closing)
 
 ## Telemetry?
 
@@ -164,4 +170,3 @@ If you're interested in checking out the code for Abacus, it's [available on Git
 
 
 * "Telemetry?" section
-* Table of contents?
