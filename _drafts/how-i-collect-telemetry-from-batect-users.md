@@ -153,12 +153,15 @@ of release.
 
 ## In closing
 
+Collecting telemetry data is something I wish I'd added to Batect far earlier. But now that I have this rich data, I can't imagine life without it. It's helped me prioritise
+my limited time and enabled me to deliver a more polished product to users. 
 
+On top of this, I've achieved my design goals for Abacus, including preserving users' privacy and minimising the performance impact of collecting this data. 
+And I've learnt about services like BigQuery and Data Studio along the way. 
 
 If you're interested in checking out the code for Abacus, it's [available on GitHub](https://github.com/batect/abacus), as is 
 [the client-side telemetry library](https://github.com/batect/batect/tree/main/libs/telemetry) used by Batect.
 
 
 * "Telemetry?" section
-* "In closing" section
 * Table of contents?
