@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "How I collect telemetry from Batect users"
+title: How I collect telemetry from Batect users
 tags: open-source telemetry google-cloud bigquery golang batect
 comments: true
+date: 2022-07-09 15:48 +1000
 ---
-
 I'm constantly asking myself a bunch of questions to help improve Batect: are Batect's users having a good experience? What's not working well? How are they using Batect?
 What could Batect do to make their lives easier?
 
