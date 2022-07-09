@@ -12,13 +12,13 @@ I first released [Batect](https://batect.dev) back in 2017. Since then, the user
 desk to hundreds of people all over the globe.
 
 Back when everyone could fit around a desk, answering these questions was easy: I could stand up, walk over to someone, and ask them. (Or, if I was feeling particularly
-lazy, I could just stay seated and ask over the top of my screen.) 
+lazy, I could stay seated and ask over the top of my screen.) 
 
 But with this growth, now I have another question: how do I break out of my bubble and feedback and ideas from those I don't know?
 
-This is where telemetry data comes into the picture. In addition to feedback signals like GitHub issues, discussions, suggestions and the surveys I occasionally run,
+This is where telemetry data comes into the picture. Besides signals like GitHub issues, discussions, suggestions and the surveys I occasionally run,
 telemetry data has been invaluable to help me get a broader understanding of how users use Batect, the problems they run into and the environments they use Batect in.
-This in turn has helped me prioritise the features and improvements that will have the greatest impact and design them in a way that will be the most useful for Batect's users.
+This in turn has helped me prioritise the features and improvements that will have the greatest impact, and design them in a way that will be the most useful for Batect's users.
 
 In this (admittedly very long) post, I'm going to talk through what I mean by telemetry data, how I went about designing the telemetry collection system, Abacus, and finish 
 off with two stories of how I've used this data.
@@ -72,8 +72,8 @@ There were a couple of key aspects I was considering as I sketched out what the 
 * Cost: any expense to build or run the system would be coming out of my own pocket, so minimising the cost was important to me.
 
 * Ease of maintenance: this is something I largely maintain in my own time, so minimising the amount of ongoing care and feeding was another high priority.
-  Another aspect of this was also designing something simple and easy to understand, so that when I come back to do any future maintenance, it would be quick and easy, 
-  rather than necessitate spending a lot of time to re-learn an obscure tool, service or library.
+  Another aspect of maintenance was also designing something simple and easy to understand, so that when I come back to do any future maintenance, I wouldn't need to spend 
+  a lot of time re-learning a tool, service or library.
 
 * Flexibility: I want to be able to investigate new ideas and answer questions I haven't thought of yet, as well as expand the data I'm collecting as 
   Batect evolves, and so I needed a system that supports these goals.
@@ -82,21 +82,21 @@ There were a couple of key aspects I was considering as I sketched out what the 
 
 ## The design
 
+It's probably easiest to understand the overall design of the system by following the lifecycle of a single session.
+
 [![Diagram showing main components in the system and the steps in data flow](/images/2022/abacus-overview.svg)](/images/2022/abacus-overview.svg)
 _Diagram showing main components in the system and steps in data flow (click to enlarge)_
-
-It's probably easiest to understand the overall design of the system by following the lifecycle of a single session. 
 
 A _session_ represents a single invocation of Batect - so if you run `./batect build` and then `./batect unitTest`, this will create two telemetry sessions, 
 one for each invocation.
 
 1️⃣ As Batect runs, it builds up the session, recording details about Batect, the environment it's running in and your configuration, amongst other things.
-It also records particular events that occur, like when an error occurs or when it shows you a "new version available" notification, and captures timing spans for 
+It also records particular events that occur, like when an error occurs or when it shows you a "new version available" nudge, and captures timing spans for 
 performance-sensitive operations like loading configuration files. 
 
 Just before Batect terminates, it writes this session to disk in the upload queue, ready to be uploaded in a future invocation.
 
-2️⃣ When Batect next runs, it will launch a background thread to check for any telemetry sessions waiting in the upload queue. 
+2️⃣ When Batect next runs, it will launch a background thread to check for any outstanding telemetry sessions waiting in the upload queue. 
 
 3️⃣ Any outstanding sessions are uploaded to Abacus. Once each upload is confirmed as successful, the session is removed from disk. 
 
@@ -170,8 +170,8 @@ For more information, visit https://github.com/batect/batect/releases/tag/0.79.1
 Armed with this information, I decided to try to help users upgrade more often and more rapidly - there was little point spending time building new features and fixing bugs if only a
 small proportion of users benefited from these improvements. 
 
-My solution was to add support for Batect's wrapper script to [Renovate](https://github.com/renovatebot/renovate). This means that users can automatically receive
-pull requests whenever I release a new version of Batect, and upgrading is as simple as merging the PR. 
+My solution was to add support for Batect's wrapper script to [Renovate](https://github.com/renovatebot/renovate). This means that projects that use Renovate will automatically receive
+pull requests to upgrade to the new version whenever I release a new version of Batect, and upgrading is as simple as merging the PR. 
 
 Again, the data shows this has been a success: whereas previously, a new version would only slowly be adopted, now, new versions of Batect make up over 40% of sessions within a month
 of release.
