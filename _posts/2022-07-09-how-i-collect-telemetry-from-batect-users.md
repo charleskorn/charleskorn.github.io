@@ -29,6 +29,7 @@ off with two stories of how I've used this data.
 * [Examples of where I've used this data](#examples-of-where-ive-used-this-data)
   * [Shell tab completion](#shell-tab-completion)
   * [Renovate](#renovate)
+* [What works well, and what doesn't](#what-works-well-and-what-doesnt)
 * [In closing](#in-closing)
 
 ## Telemetry?
@@ -99,10 +100,6 @@ Just before Batect terminates, it writes this session to disk in the upload queu
 2️⃣ When Batect next runs, it will launch a background thread to check for any outstanding telemetry sessions waiting in the upload queue. 
 
 3️⃣ Any outstanding sessions are uploaded to Abacus. Once each upload is confirmed as successful, the session is removed from disk. 
-
-This concept of the upload queue has been really successful: uploading sessions in the background of a future invocation minimises the user impact of uploading this data,
-and provides a form of resilience against any transient network or service issues. (If a session can't be uploaded for some reason, Batect will try to upload it again
-next time, or give up once the session is 30 days old.)
 
 4️⃣ Once Abacus receives the session, it performs some basic validation and writes the session to a Cloud Storage bucket. Each session is assigned a unique UUID by Batect
 when it is created, so Abacus uses this ID to deduplicate sessions if required.
@@ -176,6 +173,32 @@ pull requests to upgrade to the new version whenever I release a new version of 
 Again, the data shows this has been a success: whereas previously, a new version would only slowly be adopted, now, new versions of Batect make up over 40% of sessions within a month
 of release.
 
+## What works well, and what doesn't
+
+The Abacus API is a single Golang application deployed as a container to GCP's Cloud Run. I've been really happy with Cloud Run: it just works. My only wish is that it had better
+built-in support for gradual rollouts of new versions. This is something that can be done with Cloud Run, but as far as I can tell, it requires some form of external orchestration
+to monitor the new version and adjust the proportion of traffic going to the new and old versions as the rollout progresses.
+
+Cloud Run also integrates nicely with GCP's monitoring tooling. I wasn't sure about using GCP's monitoring tools at first - I was expecting that I'd quickly run into a variety of limitations
+and rough edges like with AWS' CloudWatch suite - but I've been pleasantly surprised. For something of this scale, the tools more than meet my needs, and I haven't felt the need to consider any alternatives.
+I recently added Honeycomb integration, but this was more out of curiousity and wanting to learn more about Honeycomb than a need to use another tool.
+
+The pattern of dropping session data into Cloud Storage to be synced by BigQuery Transfer Service into BigQuery has also been more than sufficient for my needs. While this does introduce
+a delay of up to two hours between data being received and it being ready to query in BigQuery, I rarely want to query data so rapidly, and the alternative of streaming data 
+would be both more complex and more costly.
+
+All of this also almost fits within GCP's free tier: the only item that regularly exceeds the free allowance is upload operations to Cloud Storage, as each individual session is uploaded
+individually as a single object, and the free tier includes only 5,000 uploads per month. I could reduce this cost by batching sessions together and uploading a batch as a single file,
+but this would again introduce more complexity and cost for little benefit.
+
+On the client side, the concept of the upload queue has been really successful: uploading sessions in the background of a future invocation minimises the user impact of uploading this data,
+and provides a form of resilience against any transient network or service issues. (If a session can't be uploaded for some reason, Batect will try to upload it again
+next time, or give up once the session is 30 days old.)
+
+The biggest area for improvement is how I manage reports and dashboards. I'm currently using Data Studio for this, and while it too largely just works, there are a couple of key 
+features missing that I'd really like to see. For example, it's not possible to version control the definition of a report, making changes risky, and doesn't have built-in support for
+visualisations like histograms or heatmaps, limiting how I can visualise some kinds of data.
+
 ## In closing
 
 Collecting telemetry data is something I wish I'd added to Batect far earlier. But now that I have this rich data, I can't imagine life without it. It's helped me prioritise
@@ -186,3 +209,5 @@ And I've learnt about services like BigQuery and Data Studio along the way.
 
 If you're interested in checking out the code for Abacus, it's [available on GitHub](https://github.com/batect/abacus), as is 
 [the client-side telemetry library](https://github.com/batect/batect/tree/main/libs/telemetry) used by Batect.
+
+_Updated July 10 to include more details of the tools and services behind Abacus._
